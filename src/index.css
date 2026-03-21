@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* ── Brand tokens derived from Kozi logo SVG ── */
+@theme {
+  /* Primary gradient endpoints */
+  --color-kozi-blue: #4366B0;
+  --color-kozi-mid: #438095;
+  --color-kozi-green: #44B75E;
+  --color-kozi-navy: #10182A;
+
+  /* Dark palette */
+  --color-surface-950: #060810;
+  --color-surface-900: #0B0F1A;
+  --color-surface-800: #111627;
+  --color-surface-700: #1A2035;
+  --color-surface-600: #252D45;
+  --color-surface-500: #3A4562;
+  --color-surface-400: #6B7C93;
+  --color-surface-300: #94A3B8;
+  --color-surface-200: #CBD5E1;
+  --color-surface-100: #E2E8F0;
+  --color-surface-50: #F8FAFC;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+/* ── Base ── */
+@layer base {
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  body.dark {
+    background-color: var(--color-surface-950);
+    color: var(--color-surface-200);
+  }
+
+  body.light {
+    background-color: #FAFBFC;
+    color: var(--color-kozi-navy);
+  }
+
+  ::selection {
+    background: rgba(67, 102, 176, 0.3);
+    color: white;
+  }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+.dark ::-webkit-scrollbar-thumb { background: var(--color-surface-600); border-radius: 10px; }
+.light ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+/* ── Brand gradient text ── */
+.text-brand-gradient {
+  background: linear-gradient(135deg, var(--color-kozi-blue), var(--color-kozi-mid), var(--color-kozi-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Organic grid (biology-inspired) ── */
+.bio-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(67, 102, 176, 0.04) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+.light .bio-grid {
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(67, 102, 176, 0.06) 1px, transparent 0);
+}
+
+/* ── Subtle noise ── */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Glow effects ── */
+.glow-blue {
+  box-shadow: 0 0 60px rgba(67, 102, 176, 0.12), 0 0 120px rgba(67, 102, 176, 0.04);
+}
+
+.glow-green {
+  box-shadow: 0 0 60px rgba(68, 183, 94, 0.12), 0 0 120px rgba(68, 183, 94, 0.04);
+}
+
+/* ── Border beam animation (21st.dev inspired) ── */
+@keyframes border-beam {
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
+}
+
+/* ── Organic float ── */
+@keyframes organic-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-8px) rotate(1deg); }
+  66% { transform: translateY(4px) rotate(-0.5deg); }
+}
+
+/* ── Pulse ring ── */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0; transform: scale(1.8); }
+}
