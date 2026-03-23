@@ -183,9 +183,8 @@ function CursorSpotlight({ children, className = '' }) {
     mouseY.set(e.clientY - rect.top)
   }, [mouseX, mouseY])
 
-  const bg = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, ${
-    dark ? 'rgba(67,102,176,0.06)' : 'rgba(67,102,176,0.04)'
-  }, transparent 80%)`
+  const bg = useMotionTemplate`radial-gradient(400px circle at ${mouseX}px ${mouseY}px, ${dark ? 'rgba(67,102,176,0.06)' : 'rgba(67,102,176,0.04)'
+    }, transparent 80%)`
 
   return (
     <div ref={ref} onMouseMove={handleMouse} className={`relative ${className}`}>
@@ -309,13 +308,12 @@ function Nav() {
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled
           ? dark
             ? 'bg-surface-950/70 backdrop-blur-2xl border-b border-surface-700/40'
             : 'bg-white/70 backdrop-blur-2xl border-b border-surface-200/60'
           : ''
-      }`}
+        }`}
     >
       <div className="max-w-[1120px] mx-auto px-6 h-16 flex items-center justify-between">
         <button onClick={() => navigate('home')} className="shrink-0">
@@ -325,12 +323,11 @@ function Nav() {
         <div className="hidden md:flex items-center gap-1">
           {links.map(l => (
             <button key={l.page} onClick={() => navigate(l.page)}
-              className={`text-[13px] font-medium px-3.5 py-1.5 rounded-lg transition-colors ${
-                page === l.page
+              className={`text-[13px] font-medium px-3.5 py-1.5 rounded-lg transition-colors ${page === l.page
                   ? 'text-kozi-blue'
                   : dark ? 'text-surface-400 hover:text-surface-100 hover:bg-surface-800/60'
-                       : 'text-surface-500 hover:text-kozi-navy hover:bg-surface-100'
-              }`}>
+                    : 'text-surface-500 hover:text-kozi-navy hover:bg-surface-100'
+                }`}>
               {l.label}
             </button>
           ))}
@@ -338,10 +335,9 @@ function Nav() {
 
         <div className="hidden md:flex items-center gap-2">
           <button onClick={toggle}
-            className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${
-              dark ? 'text-surface-400 hover:text-surface-100 hover:bg-surface-800'
-                   : 'text-surface-500 hover:text-kozi-navy hover:bg-surface-100'
-            }`}>
+            className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all ${dark ? 'text-surface-400 hover:text-surface-100 hover:bg-surface-800'
+                : 'text-surface-500 hover:text-kozi-navy hover:bg-surface-100'
+              }`}>
             <AnimatePresence mode="wait">
               <motion.div key={dark ? 'sun' : 'moon'}
                 initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
@@ -372,9 +368,8 @@ function Nav() {
           <motion.div
             initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className={`md:hidden overflow-hidden border-b ${
-              dark ? 'bg-surface-950/95 backdrop-blur-xl border-surface-700/40' : 'bg-white/95 backdrop-blur-xl border-surface-200'
-            }`}>
+            className={`md:hidden overflow-hidden border-b ${dark ? 'bg-surface-950/95 backdrop-blur-xl border-surface-700/40' : 'bg-white/95 backdrop-blur-xl border-surface-200'
+              }`}>
             <div className="px-6 py-4 flex flex-col gap-2">
               {links.map(l => (
                 <button key={l.page} onClick={() => { navigate(l.page); setOpen(false) }}
@@ -413,10 +408,9 @@ function Hero() {
         {/* Status chip with shimmer */}
         <BlurFade delay={0.1}>
           <div className="flex justify-center mb-8">
-            <ShinyBadge className={`gap-2 px-4 py-1.5 text-xs font-medium border ${
-              dark ? 'bg-surface-800/60 border-surface-600/50 text-surface-300'
-                   : 'bg-white border-surface-200 text-surface-500'
-            }`}>
+            <ShinyBadge className={`gap-2 px-4 py-1.5 text-xs font-medium border ${dark ? 'bg-surface-800/60 border-surface-600/50 text-surface-300'
+                : 'bg-white border-surface-200 text-surface-500'
+              }`}>
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full rounded-full bg-kozi-green opacity-75 animate-ping" />
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-kozi-green" />
@@ -428,9 +422,8 @@ function Hero() {
 
         {/* Headline */}
         <BlurFade delay={0.25}>
-          <h1 className={`text-[clamp(2.25rem,5.5vw,4.25rem)] font-semibold leading-[1.08] tracking-[-0.03em] ${
-            dark ? 'text-surface-50' : 'text-kozi-navy'
-          }`}>
+          <h1 className={`text-[clamp(2.25rem,5.5vw,4.25rem)] font-semibold leading-[1.08] tracking-[-0.03em] ${dark ? 'text-surface-50' : 'text-kozi-navy'
+            }`}>
             We build agents that work
             <br className="hidden sm:block" />
             {' '}so scientists can{' '}
@@ -440,9 +433,8 @@ function Hero() {
 
         {/* Sub */}
         <BlurFade delay={0.4}>
-          <p className={`mt-5 text-[clamp(1rem,1.8vw,1.15rem)] leading-relaxed max-w-xl mx-auto ${
-            dark ? 'text-surface-400' : 'text-surface-500'
-          }`}>
+          <p className={`mt-5 text-[clamp(1rem,1.8vw,1.15rem)] leading-relaxed max-w-xl mx-auto ${dark ? 'text-surface-400' : 'text-surface-500'
+            }`}>
             Kozi orchestrates the fragmented tools of life sciences R&D into
             unified, auditable pipelines. You keep full authority over every decision.
           </p>
@@ -457,10 +449,9 @@ function Hero() {
               <ArrowRight size={15} className="group-hover:translate-x-0.5 transition-transform" />
             </motion.a>
             <motion.button onClick={() => navigate('contact')} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border transition-all ${
-                dark ? 'bg-surface-800/50 border-surface-600/50 text-surface-200 hover:bg-surface-800 hover:border-surface-500'
-                     : 'bg-white border-surface-200 text-kozi-navy hover:bg-surface-50 hover:border-surface-300'
-              }`}>
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-semibold border transition-all ${dark ? 'bg-surface-800/50 border-surface-600/50 text-surface-200 hover:bg-surface-800 hover:border-surface-500'
+                  : 'bg-white border-surface-200 text-kozi-navy hover:bg-surface-50 hover:border-surface-300'
+                }`}>
               Request access
             </motion.button>
           </div>
@@ -468,17 +459,15 @@ function Hero() {
 
         {/* Stats row */}
         <BlurFade delay={0.7}>
-          <div className={`mt-16 flex items-center justify-center gap-px rounded-xl overflow-hidden border ${
-            dark ? 'border-surface-700/50' : 'border-surface-200'
-          }`}>
+          <div className={`mt-16 flex items-center justify-center gap-px rounded-xl overflow-hidden border ${dark ? 'border-surface-700/50' : 'border-surface-200'
+            }`}>
             {[
               { val: 6, suffix: ' wk → 1 day', label: 'Workflow compression' },
               { val: 15, suffix: '+', label: 'Bio tools unified' },
               { val: 35, suffix: 'M', label: 'Articles indexed' },
             ].map((s, i) => (
-              <div key={i} className={`flex-1 py-4 px-3 text-center ${
-                i > 0 ? dark ? 'border-l border-surface-700/50' : 'border-l border-surface-200' : ''
-              } ${dark ? 'bg-surface-800/30' : 'bg-white/60'}`}>
+              <div key={i} className={`flex-1 py-4 px-3 text-center ${i > 0 ? dark ? 'border-l border-surface-700/50' : 'border-l border-surface-200' : ''
+                } ${dark ? 'bg-surface-800/30' : 'bg-white/60'}`}>
                 <div className="text-lg sm:text-xl font-bold font-mono text-brand-gradient">
                   <NumberTicker value={s.val} suffix={s.suffix} />
                 </div>
@@ -495,9 +484,8 @@ function Hero() {
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.5 }} transition={{ delay: 2 }}
         className="absolute bottom-6 left-1/2 -translate-x-1/2">
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-          className={`w-4 h-7 rounded-full border flex items-start justify-center pt-1.5 ${
-            dark ? 'border-surface-600' : 'border-surface-300'
-          }`}>
+          className={`w-4 h-7 rounded-full border flex items-start justify-center pt-1.5 ${dark ? 'border-surface-600' : 'border-surface-300'
+            }`}>
           <div className="w-0.5 h-1.5 rounded-full bg-kozi-blue" />
         </motion.div>
       </motion.div>
@@ -527,9 +515,8 @@ function TheGap() {
             </span>
           </BlurFade>
           <BlurFade delay={0.1}>
-            <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${
-              dark ? 'text-surface-50' : 'text-kozi-navy'
-            }`}>
+            <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${dark ? 'text-surface-50' : 'text-kozi-navy'
+              }`}>
               The tools exist.
               <br />
               <span className={dark ? 'text-surface-400' : 'text-surface-500'}>
@@ -551,10 +538,9 @@ function TheGap() {
           <div className="mt-12">
             <Marquee speed={40}>
               {tools.map(t => (
-                <span key={t} className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium border whitespace-nowrap ${
-                  dark ? 'bg-surface-800/50 border-surface-600/40 text-surface-400'
-                       : 'bg-white border-surface-200 text-surface-500'
-                }`}>
+                <span key={t} className={`shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium border whitespace-nowrap ${dark ? 'bg-surface-800/50 border-surface-600/40 text-surface-400'
+                    : 'bg-white border-surface-200 text-surface-500'
+                  }`}>
                   {t}
                 </span>
               ))}
@@ -564,14 +550,13 @@ function TheGap() {
 
         {/* Impact stat */}
         <BlurFade delay={0.5}>
-          <div className={`mt-12 p-6 rounded-xl border-l-2 border-l-kozi-blue ${
-            dark ? 'bg-surface-800/20 border border-surface-700/30 border-l-kozi-blue'
-                 : 'bg-kozi-blue/[0.03] border border-kozi-blue/10 border-l-kozi-blue'
-          }`}>
+          <div className={`mt-12 p-6 rounded-xl border-l-2 border-l-kozi-blue ${dark ? 'bg-surface-800/20 border border-surface-700/30 border-l-kozi-blue'
+              : 'bg-kozi-blue/[0.03] border border-kozi-blue/10 border-l-kozi-blue'
+            }`}>
             <p className={`text-sm leading-relaxed ${dark ? 'text-surface-300' : 'text-surface-600'}`}>
               If a safe COVID-19 vaccine had been available 100 days after pathogen
               recognition, an estimated <strong className={dark ? 'text-surface-100' : 'text-kozi-navy'}>
-              8.33 million additional lives</strong> could have been saved by the end of 2021.
+                8.33 million additional lives</strong> could have been saved by the end of 2021.
               <span className={`block mt-1.5 text-xs ${dark ? 'text-surface-500' : 'text-surface-400'}`}>
                 — CEPI's 100 Days Mission
               </span>
@@ -590,18 +575,26 @@ function HowItWorks() {
   const { dark } = useTheme()
 
   const steps = [
-    { num: '01', icon: Search, title: 'Define your question',
+    {
+      num: '01', icon: Search, title: 'Define your question',
       desc: 'Specify a pathogen and target population. Set parameters or let Kozi suggest defaults calibrated for global HLA diversity.',
-      detail: 'Input' },
-    { num: '02', icon: Layers, title: 'Kozi orchestrates',
+      detail: 'Input'
+    },
+    {
+      num: '02', icon: Layers, title: 'Kozi orchestrates',
       desc: 'Autonomous agents connect databases, prediction tools, and literature — converting formats, resolving conflicts, running validations.',
-      detail: 'Process' },
-    { num: '03', icon: Eye, title: 'Review and direct',
+      detail: 'Process'
+    },
+    {
+      num: '03', icon: Eye, title: 'Review and direct',
       desc: 'At defined checkpoints, inspect results, override decisions, and redirect analysis. Every decision logged with biological justification.',
-      detail: 'Control' },
-    { num: '04', icon: FileText, title: 'Same-day report',
+      detail: 'Control'
+    },
+    {
+      num: '04', icon: FileText, title: 'Same-day report',
       desc: 'Structured scientific report with ranked candidates, population coverage, safety screening, and full provenance. Every claim traced.',
-      detail: 'Output' },
+      detail: 'Output'
+    },
   ]
 
   const modes = [
@@ -621,9 +614,8 @@ function HowItWorks() {
               </span>
             </BlurFade>
             <BlurFade delay={0.1}>
-              <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${
-                dark ? 'text-surface-50' : 'text-kozi-navy'
-              }`}>
+              <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${dark ? 'text-surface-50' : 'text-kozi-navy'
+                }`}>
                 You bring the question.
                 <br />
                 <span className={dark ? 'text-surface-400' : 'text-surface-500'}>
@@ -638,17 +630,14 @@ function HowItWorks() {
             {steps.map((s, i) => (
               <BlurFade key={i} delay={0.15 + i * 0.1}>
                 <MagneticCard className="h-full">
-                  <div className={`group relative h-full p-5 rounded-2xl border transition-all duration-300 ${
-                    dark ? 'bg-surface-800/30 border-surface-700/40 hover:border-kozi-blue/30 hover:bg-surface-800/60'
-                         : 'bg-white border-surface-200 hover:border-kozi-blue/30 hover:shadow-sm'
-                  }`}>
-                    <span className={`text-[10px] font-mono font-semibold tracking-wider ${
-                      dark ? 'text-surface-600' : 'text-surface-300'
-                    }`}>{s.num}</span>
-
-                    <div className={`mt-3 w-10 h-10 rounded-xl flex items-center justify-center ${
-                      dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
+                  <div className={`group relative h-full p-5 rounded-2xl border transition-all duration-300 ${dark ? 'bg-surface-800/30 border-surface-700/40 hover:border-kozi-blue/30 hover:bg-surface-800/60'
+                      : 'bg-white border-surface-200 hover:border-kozi-blue/30 hover:shadow-sm'
                     }`}>
+                    <span className={`text-[10px] font-mono font-semibold tracking-wider ${dark ? 'text-surface-600' : 'text-surface-300'
+                      }`}>{s.num}</span>
+
+                    <div className={`mt-3 w-10 h-10 rounded-xl flex items-center justify-center ${dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
+                      }`}>
                       <s.icon size={18} className="text-kozi-blue" />
                     </div>
 
@@ -659,9 +648,8 @@ function HowItWorks() {
                       {s.desc}
                     </p>
 
-                    <span className={`inline-block mt-4 text-[10px] font-mono font-medium px-2 py-0.5 rounded ${
-                      dark ? 'bg-surface-700/60 text-surface-400' : 'bg-surface-100 text-surface-500'
-                    }`}>{s.detail}</span>
+                    <span className={`inline-block mt-4 text-[10px] font-mono font-medium px-2 py-0.5 rounded ${dark ? 'bg-surface-700/60 text-surface-400' : 'bg-surface-100 text-surface-500'
+                      }`}>{s.detail}</span>
                   </div>
                 </MagneticCard>
               </BlurFade>
@@ -670,23 +658,19 @@ function HowItWorks() {
 
           {/* Operating modes */}
           <BlurFade delay={0.6}>
-            <div className={`mt-8 p-5 rounded-2xl border ${
-              dark ? 'bg-surface-800/20 border-surface-700/40' : 'bg-white border-surface-200'
-            }`}>
-              <p className={`text-xs font-semibold uppercase tracking-wider mb-4 ${
-                dark ? 'text-surface-500' : 'text-surface-400'
-              }`}>Choose your level of control</p>
+            <div className={`mt-8 p-5 rounded-2xl border ${dark ? 'bg-surface-800/20 border-surface-700/40' : 'bg-white border-surface-200'
+              }`}>
+              <p className={`text-xs font-semibold uppercase tracking-wider mb-4 ${dark ? 'text-surface-500' : 'text-surface-400'
+                }`}>Choose your level of control</p>
 
               <div className="grid sm:grid-cols-3 gap-3">
                 {modes.map((m, i) => (
                   <motion.div key={i} whileHover={{ y: -2 }} transition={{ type: 'spring', stiffness: 300 }}
-                    className={`flex items-start gap-3 p-3.5 rounded-xl border cursor-default transition-colors ${
-                      dark ? 'border-surface-700/40 hover:border-kozi-green/20 bg-surface-800/30'
-                           : 'border-surface-200 hover:border-kozi-green/30 bg-surface-50/50'
-                    }`}>
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                      dark ? 'bg-kozi-green/10' : 'bg-kozi-green/[0.06]'
-                    }`}>
+                    className={`flex items-start gap-3 p-3.5 rounded-xl border cursor-default transition-colors ${dark ? 'border-surface-700/40 hover:border-kozi-green/20 bg-surface-800/30'
+                        : 'border-surface-200 hover:border-kozi-green/30 bg-surface-50/50'
+                      }`}>
+                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${dark ? 'bg-kozi-green/10' : 'bg-kozi-green/[0.06]'
+                      }`}>
                       <m.icon size={14} className="text-kozi-green" />
                     </div>
                     <div>
@@ -734,9 +718,8 @@ function TopeDeep() {
               </span>
             </BlurFade>
             <BlurFade delay={0.1}>
-              <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${
-                dark ? 'text-surface-50' : 'text-kozi-navy'
-              }`}>TOPE_DEEP</h2>
+              <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${dark ? 'text-surface-50' : 'text-kozi-navy'
+                }`}>TOPE_DEEP</h2>
             </BlurFade>
             <BlurFade delay={0.2}>
               <p className={`mt-4 text-base leading-relaxed ${dark ? 'text-surface-400' : 'text-surface-500'}`}>
@@ -775,15 +758,13 @@ function TopeDeep() {
           {/* Right — report preview with border beam */}
           <BlurFade delay={0.3}>
             <MagneticCard>
-              <div className={`relative rounded-2xl border overflow-hidden ${
-                dark ? 'bg-surface-800/40 border-surface-700/40' : 'bg-white border-surface-200'
-              }`}>
+              <div className={`relative rounded-2xl border overflow-hidden ${dark ? 'bg-surface-800/40 border-surface-700/40' : 'bg-white border-surface-200'
+                }`}>
                 <BorderBeam size={100} duration={8} />
 
                 {/* Report header */}
-                <div className={`px-6 py-4 border-b flex items-center justify-between ${
-                  dark ? 'border-surface-700/40 bg-surface-800/60' : 'border-surface-200 bg-surface-50'
-                }`}>
+                <div className={`px-6 py-4 border-b flex items-center justify-between ${dark ? 'border-surface-700/40 bg-surface-800/60' : 'border-surface-200 bg-surface-50'
+                  }`}>
                   <div className="flex items-center gap-2">
                     <FileText size={14} className="text-kozi-blue" />
                     <span className={`text-xs font-mono font-semibold ${dark ? 'text-surface-200' : 'text-kozi-navy'}`}>
@@ -801,12 +782,10 @@ function TopeDeep() {
                     <motion.div key={i}
                       initial={{ opacity: 0, x: 10 }} whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }} transition={{ delay: 0.4 + i * 0.08 }}
-                      className={`flex items-start gap-3 pb-4 ${
-                        i < reportSections.length - 1 ? dark ? 'border-b border-surface-700/30' : 'border-b border-surface-100' : ''
-                      }`}>
-                      <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5 ${
-                        dark ? 'bg-surface-700/50' : 'bg-surface-100'
-                      }`}>
+                      className={`flex items-start gap-3 pb-4 ${i < reportSections.length - 1 ? dark ? 'border-b border-surface-700/30' : 'border-b border-surface-100' : ''
+                        }`}>
+                      <div className={`w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5 ${dark ? 'bg-surface-700/50' : 'bg-surface-100'
+                        }`}>
                         <s.icon size={13} className={dark ? 'text-surface-400' : 'text-surface-500'} />
                       </div>
                       <div className="flex-1 min-w-0">
@@ -842,21 +821,31 @@ function Domains() {
   const timerRef = useRef(null)
 
   const items = [
-    { title: 'Computational Vaccinology',
+    {
+      title: 'Computational Vaccinology',
       desc: 'Accelerating vaccine candidate discovery from pathogen genome to ranked epitope targets with population-aware coverage analysis.',
-      icon: Microscope },
-    { title: 'Genomic Surveillance & Variant Tracking',
+      icon: Microscope
+    },
+    {
+      title: 'Genomic Surveillance & Variant Tracking',
       desc: 'Monitoring pathogen evolution and identifying variants of concern through automated genomic analysis pipelines.',
-      icon: Dna },
-    { title: 'Drug Target Identification & Prioritisation',
+      icon: Dna
+    },
+    {
+      title: 'Drug Target Identification & Prioritisation',
       desc: 'Systematic identification and ranking of therapeutic targets using multi-source biological evidence integration.',
-      icon: FlaskConical },
-    { title: 'Clinical Trial Design',
+      icon: FlaskConical
+    },
+    {
+      title: 'Clinical Trial Design',
       desc: 'Optimising trial parameters through population stratification, biomarker selection, and endpoint analysis.',
-      icon: Activity },
-    { title: 'Diagnostics & Biomarker Discovery',
+      icon: Activity
+    },
+    {
+      title: 'Diagnostics & Biomarker Discovery',
       desc: 'Discovering and validating diagnostic biomarkers through integrated multi-omics analysis workflows.',
-      icon: Search },
+      icon: Search
+    },
   ]
 
   const startTimer = useCallback(() => {
@@ -889,9 +878,8 @@ function Domains() {
             </span>
           </BlurFade>
           <BlurFade delay={0.1}>
-            <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${
-              dark ? 'text-surface-50' : 'text-kozi-navy'
-            }`}>
+            <h2 className={`text-3xl sm:text-[2.5rem] font-semibold tracking-tight leading-[1.12] mt-3 ${dark ? 'text-surface-50' : 'text-kozi-navy'
+              }`}>
               Where Kozi works
               <br />
               <span className={dark ? 'text-surface-400' : 'text-surface-500'}>
@@ -912,13 +900,11 @@ function Domains() {
                 exit={{ x: -40, opacity: 0 }}
                 transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
-                <div className={`group relative p-8 sm:p-10 rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  dark ? 'bg-surface-800/30 border-surface-700/40 hover:border-kozi-blue/20'
-                       : 'bg-white border-surface-200 hover:border-kozi-blue/20 hover:shadow-sm'
-                }`}>
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-5 ${
-                    dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
+                <div className={`group relative p-8 sm:p-10 rounded-2xl border transition-all duration-300 overflow-hidden ${dark ? 'bg-surface-800/30 border-surface-700/40 hover:border-kozi-blue/20'
+                    : 'bg-white border-surface-200 hover:border-kozi-blue/20 hover:shadow-sm'
                   }`}>
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-5 ${dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
+                    }`}>
                     <Icon size={22} className="text-kozi-blue" />
                   </div>
                   <h3 className={`text-lg font-semibold mb-3 ${dark ? 'text-surface-100' : 'text-kozi-navy'}`}>
@@ -936,9 +922,8 @@ function Domains() {
           <div className="flex items-center justify-center gap-2 mt-6">
             {items.map((_, i) => (
               <button key={i} onClick={() => goTo(i)}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  i === active ? 'bg-kozi-blue' : dark ? 'bg-surface-600' : 'bg-surface-300'
-                }`} />
+                className={`w-2 h-2 rounded-full transition-colors ${i === active ? 'bg-kozi-blue' : dark ? 'bg-surface-600' : 'bg-surface-300'
+                  }`} />
             ))}
           </div>
 
@@ -946,11 +931,10 @@ function Domains() {
           <div className="hidden sm:flex items-center justify-center gap-4 mt-4">
             {items.map((item, i) => (
               <button key={i} onClick={() => goTo(i)}
-                className={`text-xs font-mono transition-colors ${
-                  i === active
+                className={`text-xs font-mono transition-colors ${i === active
                     ? 'text-kozi-blue font-semibold'
                     : dark ? 'text-surface-500 hover:text-surface-300' : 'text-surface-400 hover:text-surface-600'
-                }`}>
+                  }`}>
                 {item.title}
               </button>
             ))}
@@ -996,11 +980,10 @@ function ContactPage() {
     setForm({ name: '', email: '', organization: '', message: '' })
   }
 
-  const inputClass = `w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors ${
-    dark
+  const inputClass = `w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors ${dark
       ? 'bg-surface-800/50 border-surface-700/50 text-surface-100 placeholder:text-surface-500 focus:border-kozi-blue/50'
       : 'bg-white border-surface-200 text-kozi-navy placeholder:text-surface-400 focus:border-kozi-blue/50'
-  }`
+    }`
 
   return (
     <section className="pt-28 pb-20 px-6 min-h-screen">
@@ -1008,29 +991,25 @@ function ContactPage() {
         <div className="grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-14">
           {/* Left: Form */}
           <BlurFade>
-            <div className={`rounded-2xl border p-6 sm:p-8 ${
-              dark ? 'bg-surface-800/20 border-surface-700/40' : 'bg-white border-surface-200'
-            }`}>
-              {/* Tabs */}
-              <div className={`flex rounded-lg p-1 mb-8 ${
-                dark ? 'bg-surface-800/60' : 'bg-surface-100'
+            <div className={`rounded-2xl border p-6 sm:p-8 ${dark ? 'bg-surface-800/20 border-surface-700/40' : 'bg-white border-surface-200'
               }`}>
+              {/* Tabs */}
+              <div className={`flex rounded-lg p-1 mb-8 ${dark ? 'bg-surface-800/60' : 'bg-surface-100'
+                }`}>
                 {tabs.map(t => (
                   <button key={t.key} onClick={() => setActiveTab(t.key)}
-                    className={`flex-1 text-[13px] font-medium py-2 px-3 rounded-md transition-all ${
-                      activeTab === t.key
+                    className={`flex-1 text-[13px] font-medium py-2 px-3 rounded-md transition-all ${activeTab === t.key
                         ? 'bg-gradient-to-r from-kozi-blue to-kozi-green text-white shadow-sm'
                         : dark ? 'text-surface-400 hover:text-surface-200' : 'text-surface-500 hover:text-kozi-navy'
-                    }`}>
+                      }`}>
                     {t.label}
                   </button>
                 ))}
               </div>
 
               {/* Title + subtitle */}
-              <h2 className={`text-2xl sm:text-3xl font-semibold tracking-tight ${
-                dark ? 'text-surface-50' : 'text-kozi-navy'
-              }`}>
+              <h2 className={`text-2xl sm:text-3xl font-semibold tracking-tight ${dark ? 'text-surface-50' : 'text-kozi-navy'
+                }`}>
                 {tabContent[activeTab].title}
               </h2>
               <p className={`mt-2 text-sm leading-relaxed ${dark ? 'text-surface-400' : 'text-surface-500'}`}>
@@ -1088,30 +1067,27 @@ function ContactPage() {
 
           {/* Right: Sidebar */}
           <BlurFade delay={0.2}>
-            <div className={`rounded-2xl border p-6 h-fit sticky top-24 ${
-              dark ? 'bg-surface-800/20 border-surface-700/40' : 'bg-white border-surface-200'
-            }`}>
+            <div className={`rounded-2xl border p-6 h-fit sticky top-24 ${dark ? 'bg-surface-800/20 border-surface-700/40' : 'bg-white border-surface-200'
+              }`}>
               <h3 className={`text-sm font-semibold mb-4 ${dark ? 'text-surface-100' : 'text-kozi-navy'}`}>
                 Contact Info
               </h3>
 
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                    dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
+                    }`}>
                     <Mail size={14} className="text-kozi-blue" />
                   </div>
                   <div>
                     <span className={`text-xs block ${dark ? 'text-surface-500' : 'text-surface-400'}`}>Email</span>
-                    <span className={`text-sm ${dark ? 'text-surface-200' : 'text-kozi-navy'}`}>hello@kozi-ai.com</span>
+                    <span className={`text-sm ${dark ? 'text-surface-200' : 'text-kozi-navy'}`}>ask@kozi-ai.com</span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${
-                    dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${dark ? 'bg-kozi-blue/10' : 'bg-kozi-blue/[0.06]'
+                    }`}>
                     <MapPin size={14} className="text-kozi-blue" />
                   </div>
                   <div>
