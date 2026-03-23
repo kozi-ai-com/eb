@@ -952,6 +952,7 @@ function ContactPage() {
   const { dark } = useTheme()
   const [activeTab, setActiveTab] = useState('beta')
   const [form, setForm] = useState({ name: '', email: '', organization: '', message: '' })
+  const [submitted, setSubmitted] = useState(false)
 
   const tabs = [
     { key: 'beta', label: 'Beta Partner' },
@@ -976,8 +977,20 @@ function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('Contact form submitted:', { tab: activeTab, ...form })
-    setForm({ name: '', email: '', organization: '', message: '' })
+    const body = new URLSearchParams({
+      'form-name': 'contact',
+      'inquiry-type': activeTab,
+      name: form.name,
+      email: form.email,
+      organization: form.organization,
+      message: form.message,
+    })
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+      .then(() => {
+        setSubmitted(true)
+        setForm({ name: '', email: '', organization: '', message: '' })
+      })
+      .catch(() => alert('Something went wrong. Please try again.'))
   }
 
   const inputClass = `w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors ${dark
@@ -1017,7 +1030,14 @@ function ContactPage() {
               </p>
 
               {/* Form */}
-              <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+              {submitted && (
+                <div className={`mt-6 p-4 rounded-lg text-sm ${dark ? 'bg-kozi-green/10 text-kozi-green' : 'bg-kozi-green/10 text-kozi-green'}`}>
+                  Thank you! Your message has been sent. We'll get back to you soon.
+                </div>
+              )}
+              <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="mt-8 space-y-4">
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="inquiry-type" value={activeTab} />
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className={`text-xs font-medium mb-1.5 block ${dark ? 'text-surface-300' : 'text-surface-600'}`}>
