@@ -724,7 +724,7 @@ function TopeDeep() {
             <BlurFade delay={0.2}>
               <p className={`mt-4 text-base leading-relaxed ${dark ? 'text-surface-400' : 'text-surface-500'}`}>
                 Autonomous epitope-based vaccine target discovery. From pathogen genome
-                to a ranked, evidence-graded candidate report — delivered same day.
+                to a ranked, evidence-graded candidate report - delivered same day.
               </p>
             </BlurFade>
             <BlurFade delay={0.3}>
