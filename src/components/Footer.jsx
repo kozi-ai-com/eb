@@ -10,7 +10,7 @@ export function Footer() {
         <div className="flex items-center gap-3">
           <KoziLogo height={18} />
           <span className={`text-xs ${dark ? 'text-surface-500' : 'text-surface-400'}`}>
-            · Kigali, Rwanda · Founded 2025
+            · Kigali, Rwanda
           </span>
         </div>
         <div className="flex items-center gap-3">
@@ -18,7 +18,7 @@ export function Footer() {
             className={`transition-colors ${dark ? 'text-surface-500 hover:text-surface-200' : 'text-surface-400 hover:text-kozi-navy'}`}>
             <Linkedin size={16} />
           </a>
-          <a href="https://github.com/kozi-ai" target="_blank" rel="noopener noreferrer"
+          <a href="https://github.com/kozi-ai-com" target="_blank" rel="noopener noreferrer"
             className={`transition-colors ${dark ? 'text-surface-500 hover:text-surface-200' : 'text-surface-400 hover:text-kozi-navy'}`}>
             <Github size={16} />
           </a>
