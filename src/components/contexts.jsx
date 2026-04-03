@@ -5,12 +5,37 @@ import { useState, useEffect, useCallback, createContext, useContext } from 'rea
    ═══════════════════════════════════════════════════════ */
 const PageCtx = createContext()
 
+const pathToPage = {
+  '/': 'home',
+  '/TOPE_DEEP': 'tope-deep',
+  '/contact': 'contact',
+}
+
+const pageToPath = {
+  'home': '/',
+  'tope-deep': '/TOPE_DEEP',
+  'contact': '/contact',
+}
+
+function getPageFromPath() {
+  return pathToPage[window.location.pathname] || 'home'
+}
+
 export function PageProvider({ children }) {
-  const [page, setPage] = useState('home')
+  const [page, setPage] = useState(getPageFromPath)
+
+  useEffect(() => {
+    const onPopState = () => setPage(getPageFromPath())
+    window.addEventListener('popstate', onPopState)
+    return () => window.removeEventListener('popstate', onPopState)
+  }, [])
+
   const navigate = useCallback((p) => {
     setPage(p)
+    window.history.pushState(null, '', pageToPath[p] || '/')
     window.scrollTo(0, 0)
   }, [])
+
   return (
     <PageCtx.Provider value={{ page, navigate }}>
       {children}
