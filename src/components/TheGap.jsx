@@ -53,21 +53,6 @@ export function TheGap() {
           </div>
         </BlurFade>
 
-        {/* Impact stat */}
-        <BlurFade delay={0.5}>
-          <div className={`mt-12 p-6 rounded-xl border-l-2 border-l-kozi-blue ${dark ? 'bg-surface-800/20 border border-surface-700/30 border-l-kozi-blue'
-            : 'bg-kozi-blue/[0.03] border border-kozi-blue/10 border-l-kozi-blue'
-            }`}>
-            <p className={`text-sm leading-relaxed ${dark ? 'text-surface-300' : 'text-surface-600'}`}>
-              If a safe COVID-19 vaccine had been available 100 days after pathogen
-              recognition, an estimated <strong className={dark ? 'text-surface-100' : 'text-kozi-navy'}>
-                8.33 million additional lives</strong> could have been saved by the end of 2021.
-              <span className={`block mt-1.5 text-xs ${dark ? 'text-surface-500' : 'text-surface-400'}`}>
-                — CEPI's 100 Days Mission
-              </span>
-            </p>
-          </div>
-        </BlurFade>
       </div>
     </section>
   )
