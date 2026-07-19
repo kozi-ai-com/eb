@@ -31,7 +31,7 @@ export function ContactPage() {
     },
   }
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e) => {
     e.preventDefault()
     const body = new URLSearchParams({
       'form-name': 'contact',
@@ -41,12 +41,21 @@ export function ContactPage() {
       organization: form.organization,
       message: form.message,
     })
-    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
-      .then(() => {
-        setSubmitted(true)
-        setForm({ name: '', email: '', organization: '', message: '' })
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body
+    })
+      .then((response) => {
+        if (response.ok) {
+          setSubmitted(true)
+          setForm({ name: '', email: '', organization: '', message: '' })
+        } else {
+          alert(`Submission failed. Server responded with status: ${response.status}`)
+        }
       })
-      .catch(() => alert('Something went wrong. Please try again.'))
+      .catch(() => alert('Network error. Please check your connection and try again.'))
   }
 
   const inputClass = `w-full px-4 py-2.5 rounded-lg text-sm border outline-none transition-colors ${dark
