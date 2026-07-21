@@ -31,10 +31,20 @@ export function ContactPage() {
     },
   }
 
- const handleSubmit = (e) => {
+const handleSubmit = (e) => {
     e.preventDefault()
+
+    // 1. Get readable label (e.g., "Beta Partner" instead of "beta")
+    const dynamicLabel = tabs.find(t => t.key === activeTab)?.label || 'Inquiry'
+    const orgSuffix = form.organization ? ` (${form.organization})` : ''
+
+    // 2. Build dynamic subject line
+    const dynamicSubject = `[Kozi AI] New ${dynamicLabel} Inquiry - ${form.name}${orgSuffix}`
+
+    // 3. Include 'subject' in payload
     const body = new URLSearchParams({
       'form-name': 'contact',
+      'subject': dynamicSubject, // <-- Netlify reads this automatically
       'inquiry-type': activeTab,
       name: form.name,
       email: form.email,
